@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events | Wheels on Fire</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Wheels on Fire</h1>
+    <button id="modeToggle">Mode</button>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Main</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main class="container">
+    <h2>Upcoming Events & Offers</h2>
+    <ul>
+      <li><strong>April 10:</strong> Spring Supercar Showcase</li>
+      <li><strong>May 5:</strong> Vintage Car Meet-Up</li>
+      <li><strong>June 1:</strong> 10% off all services weekend!</li>
+    </ul>
+  </main>
+
+  <footer>
+    <p>© 2025 Wheels on Fire | Stay tuned for more events!</p>
+  </footer>
+
+  <script>
+  const toggleBtn = document.getElementById("modeToggle");
+
+  toggleBtn.onclick = () => {
+    document.body.classList.toggle("dark-mode");
+
+    // Save preference
+    const isDark = document.body.classList.contains("dark-mode");
+    localStorage.setItem("darkMode", isDark);
+  };
+
+  // Load saved theme
+  if (localStorage.getItem("darkMode") === "true") {
+    document.body.classList.add("dark-mode");
+  }
+</script>
+
+</body>
+</html>

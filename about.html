@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Wheels on Fire</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <button id="modeToggle">Mode</button>
+
+    <h1>Wheels on Fire</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Main</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>About John O’Reilly</h2>
+    <p>
+      Hey there, I'm John O’Reilly, the proud owner of <em>Wheels on Fire</em>.
+      I've been in the car business for as long as I can remember, and I love a
+      well-tuned engine. I’m a bit of a perfectionist — maybe even more with
+      cars than with people, if I’m honest. This site showcases my collection
+      and helps you find your perfect ride, all with a touch of my dry humour.
+    </p>
+  </main>
+
+  <footer>
+    <p>© 2025 Wheels on Fire | All Rights Reserved.</p>
+  </footer>
+
+  <script>
+  const toggleBtn = document.getElementById("modeToggle");
+
+  toggleBtn.onclick = () => {
+    document.body.classList.toggle("dark-mode");
+
+    // Save preference
+    const isDark = document.body.classList.contains("dark-mode");
+    localStorage.setItem("darkMode", isDark);
+  };
+
+  // Load saved theme
+  if (localStorage.getItem("darkMode") === "true") {
+    document.body.classList.add("dark-mode");
+  }
+</script>
+
+</body>
+</html>

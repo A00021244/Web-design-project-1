@@ -1,0 +1,149 @@
+/* === GLOBAL === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* LIGHT MODE (default) */
+:root {
+  --bg: #f9f9f9;
+  --text: #222;
+  --card: #ffffff;
+  --header: #1c1c1c;
+  --header-text: #ffffff;
+  --button-bg: #1c1c1c;
+  --button-text: #ffffff;
+  --accent: #ffcc00;
+}
+
+/* DARK MODE */
+.dark-mode {
+  --bg: #121212;
+  --text: #e5e5e5;
+  --card: #1e1e1e;
+  --header: #000000;
+  --header-text: #ffffff;
+  --button-bg: #ffcc00;
+  --button-text: #000000;
+  --accent: #ffcc00;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* === HEADER === */
+header {
+  background-color: var(--header);
+  color: var(--header-text);
+  padding: 20px 0;
+  text-align: center;
+  position: relative;
+  transition: background 0.4s ease;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+nav a {
+  color: var(--header-text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+/* === DARK/LIGHT MODE BUTTON === */
+#modeToggle {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#modeToggle:hover {
+  transform: scale(1.08);
+}
+
+/* === CONTAINER CARD === */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 40px auto;
+  background: var(--card);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: background 0.3s ease;
+}
+
+/* === BUTTONS === */
+button, input, textarea {
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* === SIMPLE ANIMATIONS === */
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.slide-up {
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUp 0.7s forwards;
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* === RESPONSIVE NAV === */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #modeToggle {
+    position: static;
+    margin-top: 10px;
+  }
+}
+
+/* Accessibility focus */
+a:focus, button:focus, input:focus {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}

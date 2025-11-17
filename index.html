@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wheels on Fire | Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <button id="modeToggle">Mode</button>
+
+    <h1>Wheels on Fire</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Main</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2 class="fade-in">Car of the Week</h2>
+    <img class="slide-up" src="C:\Users\jheen\OneDrive - Technological University Dublin\wheels-on-fire\images\car.2.jpg" alt="Car of the Week - red sports car" style="width:100%;border-radius:10px;margin-top:20px;">
+    <p class="slide-up" style="margin-top:20px;">
+      Meet this week’s star: the <strong>Ferrari 488 GTB</strong> — a precision-tuned
+      beauty that defines performance. Fast, elegant, and just a bit fiery —
+      just how we like it.
+    </p>
+  </main>
+
+  <footer>
+    <p>© 2025 Wheels on Fire | Designed with perfection and a hint of humour.</p>
+  </footer>
+
+  <script>
+  const toggleBtn = document.getElementById("modeToggle");
+
+  toggleBtn.onclick = () => {
+    document.body.classList.toggle("dark-mode");
+
+    // Save preference
+    const isDark = document.body.classList.contains("dark-mode");
+    localStorage.setItem("darkMode", isDark);
+  };
+
+  // Load saved theme
+  if (localStorage.getItem("darkMode") === "true") {
+    document.body.classList.add("dark-mode");
+  }
+</script>
+
+</body>
+</html>
