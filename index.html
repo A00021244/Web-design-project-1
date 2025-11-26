@@ -7,6 +7,11 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+<div id="loading-screen">
+    <div class="wheel"></div>
+    <p>Revving engine…</p>
+</div>
+
   <header>
     <button id="modeToggle">Mode</button>
 
@@ -25,8 +30,8 @@
     <h2 class="fade-in">Car of the Week</h2>
     <img class="slide-up" src="C:\Users\jheen\OneDrive - Technological University Dublin\wheels-on-fire\images\car.2.jpg" alt="Car of the Week - red sports car" style="width:100%;border-radius:10px;margin-top:20px;">
     <p class="slide-up" style="margin-top:20px;">
-      Meet this week’s star: the <strong>Ferrari 488 GTB</strong> — a precision-tuned
-      beauty that defines performance. Fast, elegant, and just a bit fiery —
+      Meet this week’s star: the <strong>Ferrari 488 GTB</strong>  a precision-tuned
+      beauty that defines performance. Fast, elegant, and just a bit fiery 
       just how we like it.
     </p>
   </main>
@@ -41,15 +46,19 @@
   toggleBtn.onclick = () => {
     document.body.classList.toggle("dark-mode");
 
-    // Save preference
     const isDark = document.body.classList.contains("dark-mode");
     localStorage.setItem("darkMode", isDark);
   };
 
-  // Load saved theme
   if (localStorage.getItem("darkMode") === "true") {
     document.body.classList.add("dark-mode");
   }
+
+    window.addEventListener("load", () => {
+        const loader = document.getElementById("loading-screen");
+        loader.style.opacity = "0";
+        setTimeout(() => loader.style.display = "none", 600);
+    });
 </script>
 
 </body>

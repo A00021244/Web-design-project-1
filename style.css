@@ -1,4 +1,4 @@
-/* === GLOBAL === */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +6,7 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* LIGHT MODE (default) */
+
 :root {
   --bg: #f9f9f9;
   --text: #222;
@@ -18,7 +18,7 @@
   --accent: #ffcc00;
 }
 
-/* DARK MODE */
+
 .dark-mode {
   --bg: #121212;
   --text: #e5e5e5;
@@ -37,7 +37,6 @@ body {
   transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* === HEADER === */
 header {
   background-color: var(--header);
   color: var(--header-text);
@@ -66,7 +65,7 @@ nav a:hover {
   color: var(--accent);
 }
 
-/* === DARK/LIGHT MODE BUTTON === */
+
 #modeToggle {
   position: absolute;
   right: 20px;
@@ -84,7 +83,7 @@ nav a:hover {
   transform: scale(1.08);
 }
 
-/* === CONTAINER CARD === */
+
 .container {
   width: 90%;
   max-width: 1000px;
@@ -96,7 +95,7 @@ nav a:hover {
   transition: background 0.3s ease;
 }
 
-/* === BUTTONS === */
+
 button, input, textarea {
   transition: background 0.3s, color 0.3s, transform 0.2s;
 }
@@ -105,11 +104,11 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* === SIMPLE ANIMATIONS === */
+
 
 .fade-in {
   opacity: 0;
-  animation: fadeIn 1s forwards;
+  animation: fadeIn 2s forwards;
 }
 
 @keyframes fadeIn {
@@ -119,7 +118,7 @@ button:hover {
 .slide-up {
   transform: translateY(20px);
   opacity: 0;
-  animation: slideUp 0.7s forwards;
+  animation: slideUp 4s forwards;
 }
 
 @keyframes slideUp {
@@ -129,7 +128,6 @@ button:hover {
   }
 }
 
-/* === RESPONSIVE NAV === */
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
@@ -142,8 +140,142 @@ button:hover {
   }
 }
 
-/* Accessibility focus */
+
 a:focus, button:focus, input:focus {
   outline: 3px solid var(--accent);
   outline-offset: 2px;
+}
+
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease;
+}
+
+
+#wheel {
+  width: 80px;
+  height: 80px;
+}
+
+.wheel {
+  width: 80px;
+  height: 80px;
+  border: 10px solid var(--accent);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spinWheel 1s linear infinite;
+}
+
+
+#loading-screen p {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: var(--text);
+  opacity: 0;
+  animation: fadeText 1.4s ease-in-out infinite;
+}
+
+@keyframes spinWheel {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeText {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+
+.form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: var(--card);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.form-container h1 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--text);
+}
+
+label {
+  font-weight: 600;
+  margin-top: 15px;
+  display: block;
+  color: var(--text);
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--accent);
+}
+
+button[type="submit"] {
+  margin-top: 20px;
+  padding: 14px;
+  width: 100%;
+  border: none;
+  background: var(--button-bg);
+  color: var(--button-text);
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  transform: scale(1.05);
+}
+
+
+.error {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 4px;
+  display: none;
+  color: var(--text);
+}
+
+.error::before {
+  content: "⚠️ ";
+}
+
+
+.success {
+  margin-top: 15px;
+  font-weight: 700;
+  display: none;
+  text-align: center;
+  color: var(--text);
 }
